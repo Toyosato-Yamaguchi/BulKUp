@@ -7,7 +7,7 @@
 | nickname           | string  | null: false               |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
-| gender_id          | integer | null: false               |
+| gender             | integer | null: false               |
 | body_weight        | integer | null: false               |
 | body_height        | integer | null: false               |
 | muscle_history_id  | integer | null: false               |
@@ -16,55 +16,19 @@
 
 ### Association
 
-- has_many: products
-- has_many: purchases
+- has_many: recipes
 
-# products テーブル
+# recipes テーブル
 
 | Column                 | Type       | Options           |
 | ---------------------- | ---------- | ----------------- |
-| product_name           | string     | null: false       |
-| product_description    | text       | null: false       |
-| price                  | integer    | null: false       |
-| user                   | references | foreign_key: true |
-| category_id            | integer    | null: false       |
-| freight_burden_id      | integer    | null: false       |
-| area_id                | integer    | null: false       |
-| lead_time_id           | integer    | null: false       |
-| product_state_id       | integer    | null: false       |
-
+| recipe_name            | string     | null: false       |
+| cooking_time_id        | integer    | null: false       |
+| cooking_method         | text       | null: false       |
+| foodstuff_id           | integer    | null: false       |
+| user_id                | references | foreign_key: true |
 ### Association
 
 - belongs_to: user
-- has_one: purchase
-
-
-## purchases テーブル
-
-| Column  | Type       | Options           |
-| ------- | ---------- | ----------------- |
-| user    | references | foreign_key: true |
-| product | references | foreign_key: true |
-
-### Association
-
-- belongs_to: user
-- belongs_to: product
-- has_one: address
-
-## Addresses テーブル
-
-| Column      | Type       | Options           |
-| ----------- | ---------- | ----------------- |
-| postal_code | string     | null: false       |
-| city        | string     | null: false       |
-| phone       | string     | null: false       |
-| block       | string     | null: false       | 
-| building    | string     |                   |
-| region_id   | integer    | null: false       |
-| purchase    | references | foreign_key: true |
-### Association
-
-- belongs_to: purchase
 
 
