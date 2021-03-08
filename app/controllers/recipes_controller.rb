@@ -25,6 +25,14 @@ class RecipesController < ApplicationController
 
   def edit
   end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path
+    else
+      reder :edit
+    end
+  end
   
   private
 

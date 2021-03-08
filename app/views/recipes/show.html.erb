@@ -17,9 +17,9 @@
 
     <%if user_signed_in?%>
       <%if current_user == @recipe.user%>
-        <%= link_to "レシピの編集", "#", method: :get, class: "item-red-btn" %>
+        <%= link_to "レシピの編集", edit_recipe_path, method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
+        <%= link_to "削除", recipe_path, method: :delete, class:"item-destroy" %>
       <% end %>
     <% end %>
 
