@@ -35,7 +35,7 @@
           作り方
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :cooking_method, class:"items-text", id:"item-info", placeholder:"調理方法（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :cooking_method, class:"items-text", id:"item-info", placeholder:"調理方法（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /レシピ名と作り型説明 %>
@@ -50,11 +50,11 @@
         <div class="">
           材料・調味料
         </div>
-        <%= f.text_field :hoge,  class:"", id:"", placeholder:"" %>
+        <%= f.text_field :ingredients,  class:"", id:"", placeholder:"" %>
         <div class="">
           分量
         </div>
-        <%= f.text_field :hoge, class:"", id:"", placeholder:"" %>
+        <%= f.text_field :food_weight, class:"", id:"", placeholder:"" %>
       </div>
     </div>
     <%# /レシピの詳細 %>
@@ -66,7 +66,7 @@
           調理時間
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:cooking_time, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+        <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
       </div>
     </div>
     <%# /調理時間 %>
