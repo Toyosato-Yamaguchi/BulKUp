@@ -33,6 +33,11 @@ class RecipesController < ApplicationController
       reder :edit
     end
   end
+
+  def destroy
+    @recipe.destroy
+    redirect_to root_path
+  end
   
   private
 

@@ -1,0 +1,32 @@
+<h1> レーダーチャート</h2>
+<canvas id = "myChart"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ["タンパク質", "脂質", "炭水化物", "ビタミンC", "ビタミンB6", "ビタミンD"],
+    datasets: [{
+      label: 'Aさん',
+      data: [90, 90 ,30, 40, 50, 80],
+      backgroundColor: 'RGBA(155,255,25,0.5)',
+      borderColor: 'RGBA(115,255,25,1)',
+      borderWidth: 1,
+      pointBackgroundColor: 'RGB(46,106,177)'
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: '栄養素管理'
+    },
+    scale:{
+      ticks:{
+        suggestedMax: 100,
+        suggestedMin: 0,
+        stepSize: 10
+      }
+    }
+  }
+});
+</script>
