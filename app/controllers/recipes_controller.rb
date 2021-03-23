@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only:[:edit, :update, :destroy]
+  before_action :search_recipe, only: [:index, :search]
 
   def index
     @recipes = Recipe.includes(:user).order("created_at DESC")
@@ -38,11 +39,15 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to root_path
   end
-  
+
+  def search
+    @results = @p.result
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:image, :recipe_name, :cooking_method, :cooking_time_id, :ingredients, :food_weight).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:image, :recipe_name, :cooking_method, :cooking_time_id, :ingredients, :nutrition).merge(user_id: current_user.id)
   end
 
   def set_recipe
@@ -54,4 +59,9 @@ class RecipesController < ApplicationController
      redirect_to root_path
     end
   end
+
+  def search_recipe
+    @p = Recipe.ransack(params[:q])
+  end
+
 end

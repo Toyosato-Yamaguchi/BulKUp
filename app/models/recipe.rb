@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
     validates :image
     validates :recipe_name
     validates :ingredients
-    validates :food_weight
+    validates :nutrition
     validates :cooking_method
   end
 
