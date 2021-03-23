@@ -17,6 +17,7 @@
 ### Association
 
 - has_many: recipes
+- has_many: charts
 
 # recipes テーブル
 
@@ -31,4 +32,16 @@
 
 - belongs_to: user
 
+# chart テーブル
+| Column       | Type       | Options           |
+| -------------| ---------- | ----------------- |
+| date         | date       | null: false       |
+| protein      | integer    | null: false       |
+| lipid        | integer    | null: false       |
+| carbohydrate | integer    | null: false       |
+| vitamin_B6   | integer    | null: false       |
+| vitamin_D    | integer    | null: false       |
+| vitamin_C    | integer    | null: false       |
+| user_id      | references | foreign_key: true |
 
+- belongs_to: user
