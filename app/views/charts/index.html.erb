@@ -1,32 +1,181 @@
-<h1> レーダーチャート</h2>
-<canvas id = "myChart"></canvas>
-<script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-  type: 'radar',
-  data: {
-    labels: ["タンパク質", "脂質", "炭水化物", "ビタミンC", "ビタミンB6", "ビタミンD"],
-    datasets: [{
-      label: 'Aさん',
-      data: [90, 90 ,30, 40, 50, 80],
-      backgroundColor: 'RGBA(155,255,25,0.5)',
-      borderColor: 'RGBA(115,255,25,1)',
-      borderWidth: 1,
-      pointBackgroundColor: 'RGB(46,106,177)'
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: '栄養素管理'
-    },
-    scale:{
-      ticks:{
-        suggestedMax: 100,
-        suggestedMin: 0,
-        stepSize: 10
-      }
-    }
-  }
-});
-</script>
+<%= render "shared/second-header"%>
+
+<div class='charts-sell-contents'>
+ <div class='charts-sell-main'>
+  <h1 class="name"> <%= @charts.user.nickname %>さんの栄養バランス</h1>
+    <div class='pfc-contents'>
+      <canvas id = "my_pfc_Chart"></canvas>
+      <script>
+      var ctx = document.getElementById("my_pfc_Chart");
+      var mypfcChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ["タンパク質", "脂質", "炭水化物"],
+          datasets: 
+          [
+            {
+            label: 'PFCバランス',
+            data: [gon.protein, gon.fat, gon.carbohydorate],
+            backgroundColor: 'RGBA(155,255,25,0.5)',
+            borderColor: 'RGBA(115,255,25,1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'RGB(46,106,177)'
+          },
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'PFCバランス'
+          },
+          scale:{
+            gridLines:{
+              display: true,
+              color: ['#C0C0C0','rgba(115,255,25,1)','#C0C0C0', '#C0C0C0', '#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0']
+            },
+            ticks:{
+              display: false,
+              suggestedMax: 100,
+              suggestedMin: 0,
+              stepSize: 10
+            }
+          }
+        }
+      });
+      </script>
+    </div>
+
+    <div class='vitamin-contents'>
+      <canvas id = "my_vitamin_Chart"></canvas>
+      <script>
+      var ctx = document.getElementById("my_vitamin_Chart");
+      var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ["ビタミンB1", "ビタミンB2", "ビタミンB6", "ビタミンC", "ビタミンD"],
+          datasets: [
+            {
+            label: 'ビタミン',
+            data: [gon.vitamin_B1, gon.vitamin_B2, gon.vitamin_B6, gon.vitamin_C, gon.vitamin_D],
+            backgroundColor: 'RGBA(155,255,25,0.5)',
+            borderColor: 'RGBA(115,255,25,1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'RGB(46,106,177)'
+          },
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'ビタミン'
+          },
+          scale:{
+            gridLines:{
+              display: true,
+              color: ['#C0C0C0','rgba(115,255,25,1)','#C0C0C0', '#C0C0C0', '#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0']
+            },
+            ticks:{
+              display: false,
+              suggestedMax: 100,
+              suggestedMin: 0,
+              stepSize: 10
+            }
+          }
+        }
+      });
+      </script>
+    </div>
+  </div>
+</div>
+
+<%if @charts.blank? %>
+  <div class='items-sell-contents'>
+  <div class='items-sell-main'>
+    <h1> レーダーチャート</h1>
+      <div class='pfc-contents'>
+        <canvas id = "my_pfc_Chart"></canvas>
+        <script>
+        var ctx = document.getElementById("my_pfc_Chart");
+        var mypfcChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ["タンパク質", "脂質", "炭水化物"],
+            datasets: 
+            [
+              {
+              label: 'PFCバランス',
+              data: [50, 50, 50],
+              backgroundColor: 'RGBA(155,255,25,0.5)',
+              borderColor: 'RGBA(115,255,25,1)',
+              borderWidth: 1,
+              pointBackgroundColor: 'RGB(46,106,177)'
+            },
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'PFCバランス'
+            },
+            scale:{
+              gridLines:{
+                display: true,
+                color: ['#C0C0C0','rgba(115,255,25,1)','#C0C0C0', '#C0C0C0', '#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0']
+              },
+              ticks:{
+                display: false,
+                suggestedMax: 100,
+                suggestedMin: 0,
+                stepSize: 10
+              }
+            }
+          }
+        });
+        </script>
+      </div>
+
+      <div class='vitamin-contents'>
+        <canvas id = "my_vitamin_Chart"></canvas>
+        <script>
+        var ctx = document.getElementById("my_vitamin_Chart");
+        var myChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ["ビタミンB1", "ビタミンB2", "ビタミンB6", "ビタミンC", "ビタミンD"],
+            datasets: [
+              {
+              label: 'ビタミン',
+              data: [50, 50, 50, 50, 50],
+              backgroundColor: 'RGBA(155,255,25,0.5)',
+              borderColor: 'RGBA(115,255,25,1)',
+              borderWidth: 1,
+              pointBackgroundColor: 'RGB(46,106,177)'
+            },
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'ビタミン'
+            },
+            scale:{
+              gridLines:{
+                display: true,
+                color: ['#C0C0C0','rgba(115,255,25,1)','#C0C0C0', '#C0C0C0', '#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0','#C0C0C0']
+              },
+              ticks:{
+                display: false,
+                suggestedMax: 100,
+                suggestedMin: 0,
+                stepSize: 10
+              }
+            }
+          }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render "shared/second-footer"%>

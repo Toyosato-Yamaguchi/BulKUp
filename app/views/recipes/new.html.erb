@@ -1,63 +1,66 @@
-<div class="items-sell-contents">
-  <header class="items-sell-header">
-    <%= link_to image_tag('bulkup-logo-white.png', size: '185x50'), "/" %>
+<%= render "shared/second-header"%>
 
-  </header>
+<div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title">レシピの情報を入力</h2>
     <%= form_with(model: @recipe, local: true) do |f| %>
-
-    <%#= render 'shared/error_messages', model: f.object %>
-
-    <%# レシピ画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        レシピ画像
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-    </div>
-    <%# /レシピ画像 %>
-    <%# レシピ名とレシピ説明 %>
-    <div class="new-items">
+    
+    <%= render 'shared/error_messages', model: f.object %>
+    <%# レシピ名 %>
+    <div class="recipe-name-contents">
       <div class="weight-bold-text">
         レシピ名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :recipe_name, class:"items-text", id:"item-name", placeholder:"レシピ名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-explain">
+      <%= f.text_field :recipe_name, class:"recipe-name-text", id:"recipe-name", placeholder:"レシピ名（20文字まで)", maxlength:"20" %>
+    </div>
+    <%# /レシピ名 %>
+
+    <%# レシピ画像 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          レシピ画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+      </div>
+     <%# /レシピ画像 %>    
+
+    <div class="recipe-contents">
+      <%# 材料 %>
+      <div class="ingredients">
+        <div class="weight-bold-text">
+          材料・調味料 / 分量
+          <span class="indispensable">必須</span>
+        </div>
+          <%= f.text_area :ingredients,  class:"ingredients-contents", id:"ingredients", placeholder:"材料・調味料 / 分量" %>
+      </div>
+      <%# /材料 %>
+      <%# 栄養素 %>
+      <div class="nutrition">
+        <div class="weight-bold-text">
+        栄養バランス
+        </div>
+        <%= f.text_area :nutrition,  class:"nutrition-contents", id:"nutrition", placeholder:"タンパク質 / 〇〇 g" %>
+      </div>
+    </div>
+
+    <%# 作り方 %>
+    <div class="new-recipe">
+      <div class="recipe-explain">
         <div class="weight-bold-text">
           作り方
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :cooking_method, class:"items-text", id:"item-info", placeholder:"調理方法（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :cooking_method, class:"recipe-text", id:"item-info", placeholder:"調理方法（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /レシピ名と作り方説明 %>
-
-    <%# 材料 %>
-    <div class="items-detail">
-      <div class="weight-bold-text">
-        <div class="form">
-          材料
-          <span class="indispensable">必須</span>
-        </div>
-        <div class="">
-          材料・調味料
-        </div>
-        <%= f.text_field :ingredients,  class:"", id:"", placeholder:"" %>
-        <div class="">
-          分量
-        </div>
-        <%= f.text_field :food_weight, class:"", id:"", placeholder:"" %>
-      </div>
-    </div>
-    <%# /材料 %>
+    <%# /作り方 %>
 
     <%# 調理時間 %>
     <div class="items-detail">
@@ -77,6 +80,7 @@
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
+
   </div>
   <% end %>
 

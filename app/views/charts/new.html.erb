@@ -1,0 +1,50 @@
+<%= render "shared/second-header"%>
+  <div class="charts-form-sell">
+    <div class="charts-form-main ">
+      <%= form_with(model: @chart, local: true) do |f| %>
+      <table>
+        <tr>
+          <%= f.label :calorie, "総カロリー" %>
+          <%= f.number_field :calorie %>
+        </tr>
+        <div class='feild'>
+          <%= f.label :protein, "タンパク質" %>
+          <%= f.number_field :protein %>
+        </div>
+        <div class='feild'>
+          <%= f.label :lipid, "脂質" %>
+          <%= f.number_field :lipid %>
+        </div>
+        <div class='feild'>
+          <%= f.label :carbohydorate, "炭水化物" %>
+          <%= f.number_field :carbohydorate %>
+        </div>
+        <div class='feild'>
+          <%= f.label :vitamin_B1, "ビタミンB1" %>
+          <%= f.number_field :vitamin_B1 %>
+        </div>
+        <div class='feild'>
+          <%= f.label :vitamin_B2, "ビタミンB2" %>
+          <%= f.number_field :vitamin_B2 %>
+        </div>
+        <div class='feild'>
+          <%= f.label :vitamin_B6, "ビタミンB6" %>
+          <%= f.number_field :vitamin_B6 %>
+        </div>
+        <div class='feild'>
+          <%= f.label :vitamin_D, "ビタミンD" %>
+          <%= f.number_field :vitamin_D%>
+        </div>
+        <div class='feild'>
+          <%= f.label :vitamin_C, "ビタミンC" %>
+          <%= f.number_field :vitamin_C %>
+        </div>
+        <div class='feild'>
+          <%= f.submit "更新" %>
+        </div>
+      </table>
+      <% end %>
+    </div>
+  </div>
+
+<%= render "shared/second-footer"%>

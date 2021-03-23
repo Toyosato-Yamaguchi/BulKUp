@@ -1,0 +1,35 @@
+.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.charts-sell-contents {
+  background-color: #E7E7EE;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.charts-sell-main {
+  border-radius: 25px;
+  box-shadow: 25px 25px 50px #c4c4cb,
+              -25px -25px 50px #ffffff;
+  background-color: #E6E7EF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 10vh 15vw;
+}
+
+.pfc-contents {
+  border-radius: 25px;
+
+  padding: 30px;
+  margin-bottom: 5vh;
+}
+
+.vitamin-contents {
+  border-radius: 25px;
+  padding: 30px;
+  margin-bottom: 5vh;
+}

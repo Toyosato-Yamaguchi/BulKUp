@@ -1,4 +1,4 @@
-<%= render "shared/header" %>
+<%= render "shared/header"%>
 
 <%# レシピの概要 %>
 <div class="item-show">
@@ -9,51 +9,41 @@
     <div class="item-img-content">
       <%= image_tag @recipe.image,class:"item-box-img" %>
     </div>
-    <div class="item-price-box">
-      <span class="item-postage">
-        <%= @recipe.cooking_time.name %>
-      </span>
-    </div>
 
     <%if user_signed_in?%>
       <%if current_user == @recipe.user%>
-        <%= link_to "レシピの編集", edit_recipe_path, method: :get, class: "item-red-btn" %>
+        <%= link_to "レシピの編集", edit_recipe_path, method: :get, class: "recipe-edit-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", recipe_path, method: :delete, class:"item-destroy" %>
+        <%= link_to "削除", recipe_path, method: :delete, class:"recipe-destroy" %>
       <% end %>
     <% end %>
 
-    <div class="item-explain-box">
-      <span><%= @recipe.cooking_method %></span>
+    <div class="recipe-ingredients-box">
+      <div class="recipe-stuff-box">
+        <h2 class="name-box">材料・調味料</h2>
+        <%= @recipe.ingredients %>
+      </div>
+
+      <div class="recipe-nutrition-box">
+        <h2 class="name-box">栄養バランス</h2>
+        <%= @recipe.nutrition %>
+      </div>
     </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">投稿者</th>
-          <td class="detail-value"><%= @recipe.user.nickname %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">材料</th>
-          <td class="detail-value"><%= @recipe.ingredients %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">作り方</th>
-          <td class="detail-value"><%= @recipe.cooking_method %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">調理時間</th>
-          <td class="detail-value"><%= @recipe.cooking_time.name %></td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div class="recipe-cooking-box">
+      <h2 class="name-box">作り方</h2>
+      <%= @recipe.cooking_method %>
+    </div>
+
+    <div class="recipe-time-box">
+      <h2 class="name-box">調理時間</h2>
+      <%= @recipe.cooking_time.name%>
+    </div>
+
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切なレシピの通報</span>
       </div>
     </div>
   </div>
@@ -64,8 +54,6 @@
       <textarea class="comment-text"></textarea>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
       <button type="submit" class="comment-btn">
         <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
@@ -81,9 +69,6 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>

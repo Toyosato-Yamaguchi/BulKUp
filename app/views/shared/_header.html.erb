@@ -1,23 +1,26 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='top-logo-image'>
-    <%= link_to image_tag("bulkup-logo.png", class:"bulkup-icon"), "/" %>
+    <%= link_to image_tag("bulkup-logo-white.png", class:"bulkup-icon", size: '72x72'), "/" %>
   </div>
   <div class='search-bar-contents'>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='料理名、食材名'>
-      <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-    </form>
+    <%= search_form_for @p, url: search_recipes_path do |f| %>
+      <%= f.label :ingredients_cont, '材料名' %>
+      <%= f.search_field :ingredients_cont %>
+      <%= f.label :cooking_time_id_eq, '調理時間'%>
+      <%= f.collection_select :cooking_time_id_eq, @recipes, :cooking_time_id, :cooking_time_id, include_blank: '指定なし' %>
+      <%= f.submit '検索' %>
+    <% end %>
   </div>
+  <div class="login-bar">
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "root_path", class: "user-nickname"%> </li>
+        <li><%= link_to 'マイページ', user_path(current_user.id), class: "user-nickname"%> </li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "sign-in" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
       <% end %>
     </ul>
+  </div>
 </header>

@@ -9,7 +9,7 @@ a {
 /* 画面上部の「人生を変える筋力レシピアプリ」帯部分 */
 .title-contents {
   width: 100vw;
-  background-image: image-url('.jpg');
+  background-image: image-url('toppage-food.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -20,15 +20,36 @@ a {
   padding: 5vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.title-contents::before{
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.box {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top:50%;
+  left:50%;
 }
 
 .service-title {
   font-size: 8vh;
+  color: #fff;
 }
 
 .service-explain {
   font-size: 2.5vh;
   line-height: 40px;
+  color: #fff;
 }
 
 
@@ -46,7 +67,7 @@ a {
 /* 商品一覧 */
 
 .item-contents {
-  background-color: #FFF;
+  background-color: #FFF3E6;
   display: flex;
   flex-direction: column;
   align-items: center;

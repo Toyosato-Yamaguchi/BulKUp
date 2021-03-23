@@ -1,0 +1,18 @@
+.charts-form-sell {
+  background-color: #E7E7EE;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.charts-form-main {
+  border-radius: 25px;
+  box-shadow: 25px 25px 50px #c4c4cb,
+              -25px -25px 50px #ffffff;
+  background-color: #E6E7EF;
+  padding: 10%;
+}
+
+.field
