@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2021_03_09_105102) do
   end
 
   create_table "charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "chart_date"
+    t.integer "weight"
     t.integer "calorie"
     t.integer "protein"
     t.integer "lipid"
@@ -70,7 +72,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_105102) do
     t.integer "body_height", null: false
     t.date "birthday", null: false
     t.integer "muscle_history"
-    t.integer "basal_meteabolism"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

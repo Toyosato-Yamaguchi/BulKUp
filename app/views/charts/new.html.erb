@@ -1,49 +1,125 @@
 <%= render "shared/second-header"%>
   <div class="charts-form-sell">
     <div class="charts-form-main ">
-      <%= form_with(model: @chart, local: true) do |f| %>
-      <table>
-        <tr>
-          <%= f.label :calorie, "総カロリー" %>
-          <%= f.number_field :calorie %>
-        </tr>
-        <div class='feild'>
-          <%= f.label :protein, "タンパク質" %>
-          <%= f.number_field :protein %>
+      <div class="charts-form-name">
+        摂取栄養素
+      </div>
+      <div class="charts-form-box">
+        <%= form_with(model: @chart, local: true) do |f| %>
+          <div class="feild">
+            <div class="feild-left">
+              <%= f.label :chart_date, "日付", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.date_field :chart_date, class: "chart-input"%>
+            </div>
+          </div>
+
+          <div class="feild">
+            <div class="feild-left">
+              <%= f.label :weight, "今日の体重", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :weight, class: "chart-input"%>
+              <p> kg </p>
+            </div>
+          </div>
+
+          <div class="feild">
+            <div class="feild-left">
+              <%= f.label :calorie, "総カロリー:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :calorie, class: "chart-input"%>
+              <p> kcal </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :protein, "タンパク質:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :protein, class: "chart-input" %>
+              <p> g </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :lipid, "脂質:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :lipid, class: "chart-input" %>
+              <p> g </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :carbohydorate, "炭水化物:", class: "chart-name"%>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :carbohydorate, class: "chart-input" %>
+              <p> g </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :vitamin_B1, "ビタミンB1:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :vitamin_B1, class: "chart-input" %>
+              <p> mg </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :vitamin_B2, "ビタミンB2:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :vitamin_B2, class: "chart-input" %>
+              <p> mg </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :vitamin_B6, "ビタミンB6:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :vitamin_B6, class: "chart-input" %>
+              <p> mg </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :vitamin_D, "ビタミンD:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :vitamin_D, class: "chart-input" %>
+              <p> μg </p>
+            </div>
+          </div>
+
+          <div class='feild'>
+            <div class="feild-left">
+              <%= f.label :vitamin_C, "ビタミンC:", class: "chart-name" %>
+            </div>
+            <div class="feild-right">
+              <%= f.number_field :vitamin_C, class: "chart-input" %>
+              <p> mg </p>
+            </div>
+          </div>
         </div>
-        <div class='feild'>
-          <%= f.label :lipid, "脂質" %>
-          <%= f.number_field :lipid %>
-        </div>
-        <div class='feild'>
-          <%= f.label :carbohydorate, "炭水化物" %>
-          <%= f.number_field :carbohydorate %>
-        </div>
-        <div class='feild'>
-          <%= f.label :vitamin_B1, "ビタミンB1" %>
-          <%= f.number_field :vitamin_B1 %>
-        </div>
-        <div class='feild'>
-          <%= f.label :vitamin_B2, "ビタミンB2" %>
-          <%= f.number_field :vitamin_B2 %>
-        </div>
-        <div class='feild'>
-          <%= f.label :vitamin_B6, "ビタミンB6" %>
-          <%= f.number_field :vitamin_B6 %>
-        </div>
-        <div class='feild'>
-          <%= f.label :vitamin_D, "ビタミンD" %>
-          <%= f.number_field :vitamin_D%>
-        </div>
-        <div class='feild'>
-          <%= f.label :vitamin_C, "ビタミンC" %>
-          <%= f.number_field :vitamin_C %>
-        </div>
-        <div class='feild'>
-          <%= f.submit "更新" %>
-        </div>
-      </table>
-      <% end %>
+
+          <div class='chart-submit-box'>
+            <%= f.submit "登録", class: "chart-submit-btn" %>
+          </div>
+        <% end %>
     </div>
   </div>
 

@@ -1,6 +1,8 @@
 class CreateCharts < ActiveRecord::Migration[6.0]
   def change
     create_table :charts do |t|
+      t.date        :chart_date
+      t.integer     :weight
       t.integer     :calorie
       t.integer     :protein
       t.integer     :lipid

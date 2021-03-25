@@ -1,25 +1,29 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class='top-logo-image'>
-    <%= link_to image_tag("bulkup-logo-white.png", class:"bulkup-icon", size: '72x72'), "/" %>
-  </div>
-  <div class='search-bar-contents'>
-    <%= search_form_for @p, url: search_recipes_path do |f| %>
-      <%= f.label :ingredients_cont, '材料名' %>
-      <%= f.search_field :ingredients_cont %>
-      <%= f.label :cooking_time_id_eq, '調理時間'%>
-      <%= f.collection_select :cooking_time_id_eq, @recipes, :cooking_time_id, :cooking_time_id, include_blank: '指定なし' %>
-      <%= f.submit '検索' %>
-    <% end %>
+  <div class='right-nav-box'>
+    <div class='top-logo-image'>
+      <%= link_to image_tag("bulkup-logo-white.png", class:"bulkup-icon", size: '72x72'), "/" %>
+    </div>
+    <div class='search-bar-contents'>
+      <%= search_form_for @p, url: search_recipes_path do |f| %>
+        <%= f.search_field :ingredients_cont, placeholder: "材料名", class:"search-ingredients" %>
+        <%= f.collection_select :cooking_time_id_eq, CookingTime.all, :id, :name, include_blank: "調理時間", class: "search-cookingtime" %>
+        <%= f.submit 'search', class: "search-btn" %>
+      <% end %>
+    </div>
   </div>
   <div class="login-bar">
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to 'マイページ', user_path(current_user.id), class: "user-nickname"%> </li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "user-nickname"%> </li>
+            <ul class='show-lists'>
+              <li><%= link_to 'My page', user_path(current_user.id), class: "charts" %><li>
+              <li><%= link_to '栄養管理', charts_path, class: "charts" %><li>
+            </ul>
+        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-btn" %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "sign-in" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'Log in', new_user_session_path, class: "nav-btn" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "nav-btn" %></li>
       <% end %>
     </ul>
   </div>

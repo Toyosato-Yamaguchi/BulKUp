@@ -12,7 +12,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.integer    :body_height,        null: false
       t.date       :birthday,           null: false
       t.integer    :muscle_history
-      t.integer    :basal_meteabolism
       
 
       ## Recoverable

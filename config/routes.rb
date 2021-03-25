@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :charts, only:[:index, :new, :create]
+
   resources :users, only: :show
+  resources :charts, only:[:index, :new, :create, :show]
+
 end
