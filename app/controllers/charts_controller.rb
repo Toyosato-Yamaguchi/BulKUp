@@ -1,7 +1,11 @@
 class ChartsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :create, :show]
 
   def index
-    nutrient_calculation
+    @charts = Chart.find_by user_id: current_user
+    if @charts.present?
+      nutrient_calculation
+    end
   end
 
   def new
@@ -17,15 +21,18 @@ class ChartsController < ApplicationController
     end
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
   private
 
   def chart_params
-    params.require(:chart).permit(:calorie, :protein, :lipid, :carbohydorate, :vitamin_B1, :vitamin_B2, :vitamin_B6, :vitamin_C, :vitamin_D ).merge(user_id: current_user.id)
+    params.require(:chart).permit(:chart_date, :weight, :calorie, :protein, :lipid, :carbohydorate, :vitamin_B1, :vitamin_B2, :vitamin_B6, :vitamin_C, :vitamin_D ).merge(user_id: current_user.id)
   end
 
   def nutrient_calculation
-    @charts = Chart.find_by user_id: current_user
-    basic_protein = @charts.user.body_weight * 2
+    basic_protein = @charts.weight * 2
     @protein = (@charts.protein.to_f / basic_protein) * 100
     gon.protein = @protein
 

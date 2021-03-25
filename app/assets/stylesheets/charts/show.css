@@ -1,7 +1,6 @@
 .name {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 30px;
 }
 .charts-sell-contents {
   background-color: #E7E7EE;
@@ -20,20 +19,6 @@
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
-}
-
-.nutrient-form-box {
-    text-align: right;
-}
-
-.nutrient-form-btn {
-  background: #41245C;
-  border: 1px solid #41245C;
-  border-radius: 25px;
-  color: #fff;
-  font-size: 14px;
-  padding: 10px;
-  cursor: pointer;
 }
 
 .pfc-contents {

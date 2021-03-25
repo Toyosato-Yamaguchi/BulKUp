@@ -12,7 +12,65 @@
   box-shadow: 25px 25px 50px #c4c4cb,
               -25px -25px 50px #ffffff;
   background-color: #E6E7EF;
-  padding: 10%;
+  padding: 5% 10%;
 }
 
-.field
+.charts-form-name {
+  color:#41245C;
+  font-size: 20px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+
+
+.charts-form-box {
+  margin-bottom: 10%;
+}
+
+.feild {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.feild-left {
+  width: 50%;
+}
+
+.feild-right {
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-name {
+  width: 30%;
+  font-weight: bold;
+  color: #41245C;
+  margin-right: 20px;
+}
+
+.chart-input {
+  padding: 5px;
+  margin-right: 2px;
+}
+
+.chart-submit-box {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.chart-submit-btn {
+  width: 100%;
+  background: #41245C;
+  border: 1px solid #41245C;
+  border-radius: 25px;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
