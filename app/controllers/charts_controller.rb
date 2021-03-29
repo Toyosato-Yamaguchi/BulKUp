@@ -2,7 +2,7 @@ class ChartsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create, :show]
 
   def index
-    @charts = Chart.find_by user_id: current_user
+    @charts = Chart.whenre(user_id: current_user, chart_date: ) user_id: current_user
     if @charts.present?
       nutrient_calculation
     end

@@ -1,22 +1,17 @@
 .purchase-btn {
   width: 120px;
-  background: #3ccace;
+  background: #41245C;
   text-align: center;
-  border-radius: 4%;
-  bottom: 32px;
-  right: 32px;
+  border-radius: 20%;
+  bottom: 25px;
+  right: 25px;
   position: fixed;
-  padding: 15px;
+  padding: 10px;
 }
 
 .purchase-btn-text {
   color: #fff;
   display: block;
-  font-size: 18px;
+  font-size: 15px;
   text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.purchase-btn-icon {
-  width: 60%;
 }
