@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :charts
   resources :users, only: :show
-  resources :charts, only:[:index, :new, :create, :show]
-
 end

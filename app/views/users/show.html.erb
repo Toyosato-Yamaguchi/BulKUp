@@ -1,0 +1,33 @@
+<%= render "shared/second-header"%>
+
+<div class='charts-sell-contents'>
+  <div class='charts-sell-main'>
+    <%if @charts.blank?%>
+        <h1 class="name">栄養素管理</h1>
+      <div class='nutrient-form-box'>
+        <%= link_to '摂取栄養素入力', new_chart_path, class: "nutrient-form-btn" %>
+      </div>
+      入力フォームで摂取栄養素を入力してください
+    <% else %>
+      <div class='nutrient-form-box'>
+        <%= link_to '摂取栄養素入力', new_chart_path, class: "nutrient-form-btn" %>
+      </div>
+      <div class='user-chart-date'>
+        <div class='chart-user-name'>
+          <%=@nickname %>さんの栄養素管理一覧
+        </div>
+        <ul class='chart-lists'>
+          <% @charts.each do |chart| %>
+          <li class='chart-list'>
+            <%= link_to chart_path(chart.id) do %>
+              <%= chart.chart_date %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/second-footer"%>

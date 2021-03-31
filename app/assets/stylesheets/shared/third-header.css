@@ -1,0 +1,9 @@
+.third-header {
+  width: 100%;
+  min-width: 800px;
+  height: 130px;
+  background-color: #FFF3E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+
+  <%# レシピ一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>検索結果一覧</h2>
+    <ul class='item-lists'>
+      <% @results.each do |recipe|%>
+      <li class='list'>
+        <%= link_to recipe_path(recipe.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag recipe.image, class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= recipe.recipe_name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= recipe.user.nickname %><br>調理時間 <%= recipe.cooking_time.name %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+      <%# レシピがない場合は以下のダミー商品が表示されるようにしましょう %>
+      <%if @results.blank?%>
+        <div class='search-info'>
+          <h3 class='search-name'>
+            検索結果と一致するレシピがありません。
+          </h3>
+        </div>
+      <% end %>
+  </div>
+  <%# /レシピ一覧 %>
+
+  <%= render "shared/footer" %>

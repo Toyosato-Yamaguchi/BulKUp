@@ -20,10 +20,38 @@
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
+  min-height: 500px;
+}
+
+.chart-btn-box {
+  text-align: right;
+}
+.chart-btn {
+  border-radius: 25px;
+  color: white;
+  background-color: #41245C;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.chart-date {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.chart-user-name {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.chart-lists {
+  font-weight: bold;
 }
 
 .nutrient-form-box {
-    text-align: right;
+  text-align: right;
+  margin-bottom: 30px;
 }
 
 .nutrient-form-btn {

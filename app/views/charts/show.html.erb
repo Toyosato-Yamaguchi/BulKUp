@@ -2,16 +2,14 @@
 
 <div class='charts-sell-contents'>
  <div class='charts-sell-main'>
-  <div class='charts-date'>
-    <%= @charts.date %>
+    <div class='chart-btn-box'>
+      <%= link_to '編集', edit_chart_path, method: :get, class: "chart-btn" %>
+      <%= link_to '削除', chart_path, method: :delete, class: "chart-btn" %>
+    </div>
+  <div class='name'>
+    <%= @chart.chart_date %>
   </div>
-  <h1 class="name"> <%= @charts.user.nickname %>さんの栄養バランス</h1>
-  <div class='charts-form-btn'>
-    <%= link_to '栄養素入力', new_chart_path, class: "chart-form-btn" %>
-      <%if @charts.blank?%>
-      入力フォームで摂取栄養素を入力してください
-      <% end %>
-  </div>
+      <h1 class="name"> <%= @chart.user.nickname %>さんの栄養バランス</h1>
     <div class='pfc-contents'>
       <canvas id = "my_pfc_Chart"></canvas>
       <script>

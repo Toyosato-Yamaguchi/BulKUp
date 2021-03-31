@@ -44,6 +44,7 @@
   border-radius: 20px;
   color: white;
   padding: 5px;
+  cursor: pointer;
 }
 
 /* /search-bar-contents */
@@ -58,12 +59,21 @@
 
 
 .user-nickname {
+  position: relative;
   text-decoration: none;
   margin-right: 3vw;
   color: #41245C;
   font-weight: bold;
+  cursor: pointer;
 }
 
+.show-lists {
+  position: absolute;
+  top: 60px;
+  height: 60px;
+  padding: 20px;
+  background-color: #41245C;
+}
 
 .nav-btn {
   border-radius: 20px;
@@ -71,6 +81,16 @@
   text-decoration: none;
   padding: 10px;
   color: white;
+  cursor: pointer;
 }
 
+.charts {
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
 /* /login-bar */

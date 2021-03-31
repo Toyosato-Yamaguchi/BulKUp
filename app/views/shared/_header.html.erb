@@ -1,4 +1,5 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
+<%= javascript_pack_tag 'shared/application' %>
 <header class='top-page-header'>
   <div class='right-nav-box'>
     <div class='top-logo-image'>
@@ -15,10 +16,9 @@
   <div class="login-bar">
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "user-nickname"%> </li>
-            <ul class='show-lists'>
-              <li><%= link_to 'My page', user_path(current_user.id), class: "charts" %><li>
-              <li><%= link_to '栄養管理', charts_path, class: "charts" %><li>
+        <li class="user-nickname", id="lists"><%= "#{current_user.nickname}"%> </li>
+            <ul class='show-lists hidden' id="pull-down">
+              <li><%= link_to '栄養素管理', "/users/#{current_user.id}", class: "charts" %><li>
             </ul>
         <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-btn" %></li>
       <% else %>
