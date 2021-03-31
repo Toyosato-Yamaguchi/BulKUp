@@ -7,8 +7,8 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :gender
-    validates :body_weight
-    validates :body_height
+    validates :body_weight, numericality: { only_integer: true }
+    validates :body_height, numericality: { only_integer: true }
     validates :birthday
   end
 
