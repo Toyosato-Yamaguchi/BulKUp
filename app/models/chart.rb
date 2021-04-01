@@ -5,14 +5,14 @@ class Chart < ApplicationRecord
   with_options numericality: true do
     validates :weight
     validates :calorie
-    validates :protein,        allow_blank: true
-    validates :lipid,          allow_blank: true
-    validates :carbohydorate,  allow_blank: true
-    validates :vitamin_B1,     allow_blank: true
-    validates :vitamin_B2,     allow_blank: true
-    validates :vitamin_B6,     allow_blank: true
-    validates :vitamin_C,      allow_blank: true
-    validates :vitamin_D,      allow_blank: true
+    validates :protein
+    validates :lipid
+    validates :carbohydorate
+    validates :vitamin_B1
+    validates :vitamin_B2
+    validates :vitamin_B6
+    validates :vitamin_C
+    validates :vitamin_D
   end
 
   belongs_to :user
