@@ -6,6 +6,9 @@
       </div>
       <div class="charts-form-box">
         <%= form_with(model: @chart, local: true) do |f| %>
+
+            <%= render 'shared/error_messages', model: f.object %>
+
           <div class="feild">
             <div class="feild-left">
               <%= f.label :chart_date, "日付", class: "chart-name" %>
@@ -20,7 +23,7 @@
               <%= f.label :weight, "今日の体重", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :weight, class: "chart-input"%>
+              <%= f.number_field :weight, step: "0.1", class: "chart-input"%>
               <p> kg </p>
             </div>
           </div>
@@ -30,7 +33,7 @@
               <%= f.label :calorie, "総カロリー:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :calorie, class: "chart-input"%>
+              <%= f.number_field :calorie, step: "0.1", class: "chart-input"%>
               <p> kcal </p>
             </div>
           </div>
@@ -40,7 +43,7 @@
               <%= f.label :protein, "タンパク質:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :protein, class: "chart-input" %>
+              <%= f.number_field :protein, step: "0.1", class: "chart-input" %>
               <p> g </p>
             </div>
           </div>
@@ -50,7 +53,7 @@
               <%= f.label :lipid, "脂質:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :lipid, class: "chart-input" %>
+              <%= f.number_field :lipid, step: "0.1", class: "chart-input" %>
               <p> g </p>
             </div>
           </div>
@@ -60,7 +63,7 @@
               <%= f.label :carbohydorate, "炭水化物:", class: "chart-name"%>
             </div>
             <div class="feild-right">
-              <%= f.number_field :carbohydorate, class: "chart-input" %>
+              <%= f.number_field :carbohydorate, step: "0.1", class: "chart-input" %>
               <p> g </p>
             </div>
           </div>
@@ -70,7 +73,7 @@
               <%= f.label :vitamin_B1, "ビタミンB1:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :vitamin_B1, class: "chart-input" %>
+              <%= f.number_field :vitamin_B1, step: "0.01", class: "chart-input" %>
               <p> mg </p>
             </div>
           </div>
@@ -80,7 +83,7 @@
               <%= f.label :vitamin_B2, "ビタミンB2:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :vitamin_B2, class: "chart-input" %>
+              <%= f.number_field :vitamin_B2, step: "0.01", class: "chart-input" %>
               <p> mg </p>
             </div>
           </div>
@@ -90,7 +93,7 @@
               <%= f.label :vitamin_B6, "ビタミンB6:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :vitamin_B6, class: "chart-input" %>
+              <%= f.number_field :vitamin_B6, step: "0.01", class: "chart-input" %>
               <p> mg </p>
             </div>
           </div>
@@ -100,7 +103,7 @@
               <%= f.label :vitamin_D, "ビタミンD:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :vitamin_D, class: "chart-input" %>
+              <%= f.number_field :vitamin_D, step: "0.01", class: "chart-input" %>
               <p> μg </p>
             </div>
           </div>
@@ -110,7 +113,7 @@
               <%= f.label :vitamin_C, "ビタミンC:", class: "chart-name" %>
             </div>
             <div class="feild-right">
-              <%= f.number_field :vitamin_C, class: "chart-input" %>
+              <%= f.number_field :vitamin_C, step: "0.01", class: "chart-input" %>
               <p> mg </p>
             </div>
           </div>

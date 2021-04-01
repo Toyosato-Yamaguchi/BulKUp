@@ -34,17 +34,17 @@ ActiveRecord::Schema.define(version: 2021_03_09_105102) do
   end
 
   create_table "charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "chart_date"
-    t.integer "weight"
-    t.integer "calorie"
-    t.integer "protein"
-    t.integer "lipid"
-    t.integer "carbohydorate"
-    t.integer "vitamin_B1"
-    t.integer "vitamin_B2"
-    t.integer "vitamin_B6"
-    t.integer "vitamin_D"
-    t.integer "vitamin_C"
+    t.date "chart_date", null: false
+    t.float "weight", null: false
+    t.float "calorie", null: false
+    t.float "protein", null: false
+    t.float "lipid", null: false
+    t.float "carbohydorate", null: false
+    t.float "vitamin_B1", null: false
+    t.float "vitamin_B2", null: false
+    t.float "vitamin_B6", null: false
+    t.float "vitamin_D", null: false
+    t.float "vitamin_C", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

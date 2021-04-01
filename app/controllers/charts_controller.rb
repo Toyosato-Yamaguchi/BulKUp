@@ -54,7 +54,7 @@ class ChartsController < ApplicationController
   end
 
   def nutrient_calculation
-    basic_protein = @chart.weight * 2
+    basic_protein = @chart.weight.to_f * 2
     @protein = (@chart.protein.to_f / basic_protein) * 100
     gon.protein = @protein
 
