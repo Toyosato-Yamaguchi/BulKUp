@@ -79,3 +79,5 @@ gem 'gon'
 gem 'ransack'
 
 gem 'pry-rails'
+
+gem 'rename'
