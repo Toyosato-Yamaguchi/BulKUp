@@ -11,13 +11,17 @@
   
 # テスト用アカウント
   Basic認証
+  ID: yama
+  password: 2222
   ログインアカウント
+  ID: yama1@gmail.com
+  Password: 111aaa
   
 # 利用方法
   筋力アップに特化したレシピを投稿することでレシピを共有します。摂取栄養素を入力してその日摂取した栄養素を管理します。
 
 #  開発環境
-  HTML, CSS, Ruby, Ruby on Rails, Chart.js, AWS(EC2, S3)
+  HTML, CSS, Ruby, Ruby on Rails, javascript, AWS(EC2)
 
 # 制作背景
 ## 目指した課題解決
@@ -61,13 +65,16 @@
   投稿したレシピを削除します。
   
 - レシピ検索機能
-  gem ransackを使って材料名、調理時間を入力すると条件にあったレシピを検索できます。
+  材料名、調理時間を入力すると条件にあったレシピを検索できます。
   
 - 摂取栄養素管理機能
   摂取した栄養素を入力するとレーダーチャートで表示します。
+  レシピ投稿機能と同様に登録した栄養素を編集、削除できます。
   
 
 ##  工夫したポイント
+  摂取した栄養素をグラフで表示する際にはPFCバランスとビタミン群の二つのレーダーチャートで表示してあげることで、
+  摂取したバランスがわかりやすいように実装しました。
 
 
 
@@ -116,15 +123,15 @@
 | Column       | Type       | Options           |
 | -------------| ---------- | ----------------- |
 | chart_date   | date       | null: false       |
-| weight       | integer    | null: false       |
-| protein      | integer    | null: false       |
-| lipid        | integer    | null: false       |
-| carbohydrate | integer    | null: false       |
-| vitamin_B1   | integer    | null: false       |
-| vitamin_B2   | integer    | null: false       | 
-| vitamin_B6   | integer    | null: false       |
-| vitamin_D    | integer    | null: false       |
-| vitamin_C    | integer    | null: false       |
+| weight       | float      | null: false       |
+| protein      | float      | null: false       |
+| lipid        | float      | null: false       |
+| carbohydrate | float      | null: false       |
+| vitamin_B1   | float      | null: false       |
+| vitamin_B2   | float      | null: false       | 
+| vitamin_B6   | float      | null: false       |
+| vitamin_D    | float      | null: false       |
+| vitamin_C    | float      | null: false       |
 | user_id      | references | foreign_key: true |
 
 ### Association
