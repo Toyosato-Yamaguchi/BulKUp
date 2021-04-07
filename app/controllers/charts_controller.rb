@@ -1,6 +1,6 @@
 class ChartsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chart, only: [:show, :edit, :update, :dastroy]
+  before_action :set_chart, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def new
@@ -50,7 +50,7 @@ class ChartsController < ApplicationController
   def move_to_index
     unless current_user == @chart.user
       redirect_to root_path
-     end
+    end
   end
 
   def nutrient_calculation
