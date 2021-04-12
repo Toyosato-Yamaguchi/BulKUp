@@ -18,4 +18,5 @@ class User < ApplicationRecord
 
   has_many :recipes
   has_many :charts
+  has_many :messages
 end
