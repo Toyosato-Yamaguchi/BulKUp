@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :charts
   resources :users, only: :show
+  resources :messages, only: [:new, :create]
 end
