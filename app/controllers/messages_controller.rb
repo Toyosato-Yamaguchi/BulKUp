@@ -5,6 +5,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(text: paras[:message][:text])
+    @message = Message.new(text: params[:message][:text])
   end
 end

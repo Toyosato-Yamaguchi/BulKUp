@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :messages, only: :create
   end
 
   resources :charts
   resources :users, only: :show
-  resources :messages, only: [:new, :create]
 end

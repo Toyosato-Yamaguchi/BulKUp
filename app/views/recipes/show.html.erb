@@ -50,16 +50,22 @@
   <%# /レシピの概要 %>
 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@recipe, @message], local: true) do |f| %>
+        <%= f.text_field :text, class:"comment-text" %>
+        <p class="comment-warn">
+          相手のことを考え丁寧なコメントを心がけましょう。
+        </p>
+        <%= f.submit 'コメントする', class:"comment-btn" %>
+      <% end %>
+    <% else %>
+      <strong><p>*** コメントの投稿には新規登録/ログインが必要です ***</p></strong>
+    <% end %>
+  </div>
+  <div id='messages'>
+    <% @messages.reverse_each do |message| %>
+      <p><%= message.text %></p>
+    <% end %>
   </div>
 </div>
 
