@@ -13,6 +13,6 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    parmas.require(:message).permit(:text).merge(user_id: current_user, recipe_id: params[:recipe_id])
+    params.require(:message).permit(:text).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
   end
 end
