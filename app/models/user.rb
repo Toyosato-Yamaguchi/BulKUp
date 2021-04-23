@@ -19,4 +19,5 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :charts
   has_many :messages
+  has_many :favorites, dependent: :destroy
 end

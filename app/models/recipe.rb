@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :messages
+  has_many :favorites, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :cooking_time
