@@ -14,7 +14,7 @@
       <%if current_user == @recipe.user%>
         <%= link_to "レシピの編集", edit_recipe_path, method: :get, class: "recipe-edit-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", recipe_path, method: :delete, class:"recipe-destroy" %>
+        <%= link_to "削除", recipe_path, method: :delete, data: {confirm: "削除しますか？"} class:"recipe-destroy" %>
       <% end %>
     <% end %>
 
@@ -42,7 +42,7 @@
 
     <div class="option">
       <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <%= link_to recipe_ image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
       </div>
     </div>

@@ -4,7 +4,7 @@
  <div class='charts-sell-main'>
     <div class='chart-btn-box'>
       <%= link_to '編集', edit_chart_path, method: :get, class: "chart-btn" %>
-      <%= link_to '削除', chart_path, method: :delete, class: "chart-btn" %>
+      <%= link_to '削除', chart_path, method: :delete, data: {confirm: "削除しますか？"} class: "chart-btn" %>
     </div>
   <div class='name'>
     <%= @chart.chart_date %>
